@@ -18,7 +18,7 @@ public class AutorEndpoint {
 
     @POST
     public Response cadastrarAutor(AutorDTO autorDTO) {
-        autorService.cadastrarAutor(autorDTO);
-        return Response.ok().build();
+        var response = autorService.cadastrarAutor(autorDTO);
+        return Response.ok(response).build();
     }
 }
