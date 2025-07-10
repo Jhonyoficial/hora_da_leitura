@@ -1,4 +1,4 @@
-package br.com.biblioteca.emprestimo;
+package br.com.biblioteca.emprestimo.dto;
 
 import br.com.biblioteca.cliente.ClienteDTO;
 import br.com.biblioteca.livro.LivroDTO;
@@ -13,7 +13,11 @@ public class EmprestimoDTO {
 
     private LocalDate dtEmprestimo;
 
+    private LocalDate dtLimiteDevolucao;
+
     private LocalDate dtDevolucao;
+
+    private Integer fgStatus;
 
     private ClienteDTO cliente;
 
