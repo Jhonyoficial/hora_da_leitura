@@ -1,7 +1,7 @@
 package br.com.biblioteca.emprestimo;
 
+import br.com.biblioteca.cliente.ClienteDTO;
 import br.com.biblioteca.livro.LivroDTO;
-import br.com.biblioteca.usuario.UsuarioDTO;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ public class EmprestimoDTO {
 
     private LocalDate dtDevolucao;
 
-    private UsuarioDTO usuario;
+    private ClienteDTO cliente;
 
     private LivroDTO livro;
 

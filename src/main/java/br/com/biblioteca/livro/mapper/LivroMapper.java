@@ -1,12 +1,11 @@
 package br.com.biblioteca.livro.mapper;
 
-import br.com.biblioteca.autor.mapper.AutorMapper;
 import br.com.biblioteca.livro.Livro;
 import br.com.biblioteca.livro.LivroDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "jakarta-cdi", uses = {AutorMapper.class})
+@Mapper(componentModel = "jakarta-cdi")
 public interface LivroMapper {
     LivroMapper INSTANCE = Mappers.getMapper(LivroMapper.class);
 

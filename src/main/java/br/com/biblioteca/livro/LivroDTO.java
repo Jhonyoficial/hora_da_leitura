@@ -1,6 +1,5 @@
 package br.com.biblioteca.livro;
 
-import br.com.biblioteca.autor.AutorDTO;
 import lombok.Data;
 
 @Data
@@ -16,5 +15,5 @@ public class LivroDTO {
 
     private String dsIsbn;
 
-    private AutorDTO autor;
+    private String dsNomeAutor;
 }

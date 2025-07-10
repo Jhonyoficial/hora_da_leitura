@@ -1,4 +1,4 @@
-package br.com.biblioteca.autor;
+package br.com.biblioteca.cliente;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -7,28 +7,28 @@ import jakarta.ws.rs.core.Response;
 
 @Produces(value = MediaType.APPLICATION_JSON)
 @Consumes(value = MediaType.APPLICATION_JSON)
-@Path("autor")
-public class AutorController {
+@Path("cliente")
+public class ClienteController {
 
     @Inject
-    AutorService autorService;
+    ClienteService autorService;
 
     @POST
-    public Response cadastrarAutor(AutorDTO autorDTO) {
-        var response = autorService.cadastrarAutor(autorDTO);
+    public Response cadastrarAutor(ClienteDTO clienteDTO) {
+        var response = autorService.cadastrarCliente(clienteDTO);
         return Response.ok(response).build();
     }
 
     @PUT
-    public Response alterarAutor(AutorDTO autorDTO) {
-        var response = autorService.atualizarAutor(autorDTO);
+    public Response alterarAutor(ClienteDTO clienteDTO) {
+        var response = autorService.atualizarCliente(clienteDTO);
         return Response.ok(response).build();
     }
 
     @GET
     @Path("{idAutor}")
     public Response buscarAutorPorId(@PathParam("idAutor") Integer idAutor) {
-        var response = autorService.buscarAutorPorId(idAutor);
+        var response = autorService.buscarClientePorId(idAutor);
         return Response.ok().entity(response).build();
     }
 }

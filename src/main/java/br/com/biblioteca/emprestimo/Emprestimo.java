@@ -1,7 +1,7 @@
 package br.com.biblioteca.emprestimo;
 
+import br.com.biblioteca.cliente.Cliente;
 import br.com.biblioteca.livro.Livro;
-import br.com.biblioteca.usuario.Usuario;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -28,9 +28,9 @@ public class Emprestimo extends PanacheEntityBase implements Serializable {
     @Column(name = "dt_devolucao")
     private LocalDate dtDevolucao;
 
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_cliente")
     @ManyToOne
-    private Usuario usuario;
+    private Cliente cliente;
 
     @JoinColumn(name = "id_livro")
     @ManyToOne

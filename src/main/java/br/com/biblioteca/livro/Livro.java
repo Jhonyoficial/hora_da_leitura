@@ -1,6 +1,5 @@
 package br.com.biblioteca.livro;
 
-import br.com.biblioteca.autor.Autor;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,7 +11,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "livro")
-@SequenceGenerator(name = "seq_livro", sequenceName = "seq_livro" , allocationSize = 1)
+@SequenceGenerator(name = "seq_livro", sequenceName = "seq_livro", allocationSize = 1)
 public class Livro extends PanacheEntityBase implements Serializable {
 
     @Id
@@ -26,16 +25,12 @@ public class Livro extends PanacheEntityBase implements Serializable {
     @Column(name = "nm_exemplares")
     private Integer nmExemplares;
 
-    @Column(name = "nm_disponivel")
-    private Integer nmDisponivel;
-
     @Column(name = "ds_titulo")
     private String dsTitulo;
 
     @Column(name = "ds_isbn")
     private String dsIsbn;
 
-    @JoinColumn(name = "id_autor", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Autor autor;
+    @Column(name = "ds_nome_autor")
+    private String dsNomeAutor;
 }
