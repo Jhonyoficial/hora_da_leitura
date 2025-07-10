@@ -26,6 +26,9 @@ public class Livro extends PanacheEntityBase implements Serializable {
     @Column(name = "nm_exemplares")
     private Integer nmExemplares;
 
+    @Column(name = "nm_disponivel")
+    private Integer nmDisponivel;
+
     @Column(name = "ds_titulo")
     private String dsTitulo;
 

@@ -16,7 +16,7 @@ public class LivroConverterUpdate {
         livro.setNmExemplares(livroDTO.getNmExemplares());
         livro.setDsTitulo(livroDTO.getDsTitulo());
         livro.setDsIsbn(livroDTO.getDsIsbn());
-        livro.setAutor(autorMapper.toAutor(livroDTO.getAutorDTO()));
+        livro.setAutor(autorMapper.toAutor(livroDTO.getAutor()));
 
     }
 

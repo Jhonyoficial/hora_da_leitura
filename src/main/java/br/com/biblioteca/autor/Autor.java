@@ -20,5 +20,5 @@ public class Autor extends PanacheEntityBase implements Serializable {
     private Integer idAutor;
 
     @Column(name = "ds_nome_autor")
-    private String dsNomeAutor;
+    private String dsNome;
 }

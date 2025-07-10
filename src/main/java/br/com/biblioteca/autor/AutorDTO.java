@@ -7,5 +7,5 @@ public class AutorDTO {
 
     private Integer idAutor;
 
-    private String dsNomeAutor;
+    private String dsNome;
 }

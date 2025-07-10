@@ -16,5 +16,5 @@ public class LivroDTO {
 
     private String dsIsbn;
 
-    private AutorDTO autorDTO;
+    private AutorDTO autor;
 }
