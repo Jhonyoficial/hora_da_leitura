@@ -23,14 +23,14 @@ public class Livro extends PanacheEntityBase implements Serializable {
     @Column(name = "nm_ano")
     private Integer nmAno;
 
+    @Column(name = "nm_exemplares")
+    private Integer nmExemplares;
+
     @Column(name = "ds_titulo")
     private String dsTitulo;
 
     @Column(name = "ds_isbn")
     private String dsIsbn;
-
-    @Column(name = "nm_exemplares")
-    private String nmExemplares;
 
     @JoinColumn(name = "id_autor", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)

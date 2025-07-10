@@ -19,4 +19,16 @@ public class AutorService {
         return autorMapper.toAutorDTO(autor);
 
     }
+
+    public AutorDTO atualizarAutor(AutorDTO autorDTO) {
+        Autor autor = autorMapper.toAutor(autorDTO);
+        autor.persist();
+
+        return autorMapper.toAutorDTO(autor);
+    }
+
+    public AutorDTO buscarAutorPorId(Integer idAutor) {
+        Autor autor = Autor.findById(idAutor);
+        return autorMapper.toAutorDTO(autor);
+    }
 }
