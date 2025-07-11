@@ -1,4 +1,4 @@
-package br.com.biblioteca.livro;
+package br.com.biblioteca.livro.dto;
 
 import lombok.Data;
 
@@ -10,6 +10,8 @@ public class LivroDTO {
     private Integer nmAno;
 
     private Integer nmExemplares;
+
+    private Integer nmDisponiveis;
 
     private String dsTitulo;
 

@@ -1,5 +1,6 @@
 package br.com.biblioteca.livro;
 
+import br.com.biblioteca.livro.dto.LivroDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -28,7 +29,14 @@ public class LivroController {
     @GET
     @Path("{idLivro}")
     public Response buscarLivroPorId(@PathParam("idLivro") Integer idLivro) {
-        var livro = Livro.findById(idLivro);
+        var livro = livroService.buscarLivroPorId(idLivro);
         return Response.ok().entity(livro).build();
+    }
+
+    @GET
+    @Path("disponiveis")
+    public Response buscarLivrosDisponiveis(){
+        var response = livroService.buscarLivrosDisponiveis();
+        return Response.ok().entity(response).build();
     }
 }

@@ -1,4 +1,5 @@
 package br.com.biblioteca.livro;
+import br.com.biblioteca.livro.dto.LivroDTO;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

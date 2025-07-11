@@ -1,7 +1,7 @@
 package br.com.biblioteca.livro.mapper;
 
 import br.com.biblioteca.livro.Livro;
-import br.com.biblioteca.livro.LivroDTO;
+import br.com.biblioteca.livro.dto.LivroDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
