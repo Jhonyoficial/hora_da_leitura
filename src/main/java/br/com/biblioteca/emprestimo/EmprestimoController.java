@@ -19,7 +19,14 @@ public class EmprestimoController {
 
     @POST
     public Response gerarEmprestimo(EmprestimoDTO emprestimoDTO) {
-        emprestimoService.emprestarLivro(emprestimoDTO);
+        final var response = emprestimoService.emprestarLivro(emprestimoDTO);
+        return Response.ok().entity(response).build();
+    }
+
+    @POST
+    @Path("devolver-livro")
+    public Response devolverEmprestimo(EmprestimoDTO emprestimoDTO) {
+        emprestimoService.devolverLivro(emprestimoDTO);
         return Response.ok().build();
     }
 }

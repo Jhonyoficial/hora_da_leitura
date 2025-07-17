@@ -41,12 +41,9 @@ public class LivroService {
         return livroMapper.toLivroDTO(livro);
     }
 
-    public List<LivrosDisponiveisDTO> buscarLivrosDisponiveis(){
-        List<LivrosDisponiveisDTO> livrosDisponiveis = Livro.find("nmDisponiveis > 0")
+    public List<LivrosDisponiveisDTO> buscarLivrosDisponiveis() {
+        return Livro.find("nmDisponiveis > 0")
                 .project(LivrosDisponiveisDTO.class)
                 .list();
-
-
-        return livrosDisponiveis;
     }
 }

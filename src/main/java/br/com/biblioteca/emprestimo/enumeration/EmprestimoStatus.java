@@ -2,9 +2,11 @@ package br.com.biblioteca.emprestimo.enumeration;
 
 public enum EmprestimoStatus {
 
-    PENDENTE,
+    EMPRESTADO,
 
     DEVOLVIDO,
+
+    PENDENTE,
 
     CANCELADO
 }
