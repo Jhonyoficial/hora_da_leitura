@@ -15,7 +15,13 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "emprestimo")
 @EqualsAndHashCode(callSuper = false)
+@SequenceGenerator(name = "seq_emprestimo", sequenceName = "seq_emprestimo",  allocationSize = 1)
 public class Emprestimo extends PanacheEntityBase implements Serializable {
+
+    @Id
+    @GeneratedValue(generator = "seq_emprestimo", strategy = GenerationType.IDENTITY)
+    @Column(name = "id_emprestimo")
+    private Integer idEmprestimo;
 
     @Column(name = "dt_emprestimo")
     private LocalDate dtEmprestimo;
@@ -26,17 +32,14 @@ public class Emprestimo extends PanacheEntityBase implements Serializable {
     @Column(name = "dt_devolucao")
     private LocalDate dtDevolucao;
 
-    @Id
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "fg_status")
     private EmprestimoStatus fgStatus;
 
-    @Id
     @JoinColumn(name = "id_cliente")
     @ManyToOne
     private Cliente cliente;
 
-    @Id
     @JoinColumn(name = "id_livro")
     @ManyToOne
     private Livro livro;

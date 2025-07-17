@@ -2,10 +2,7 @@ package br.com.biblioteca.emprestimo;
 
 import br.com.biblioteca.emprestimo.dto.EmprestimoDTO;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -23,10 +20,9 @@ public class EmprestimoController {
         return Response.ok().entity(response).build();
     }
 
-    @POST
-    @Path("devolver-livro")
+    @PUT
     public Response devolverEmprestimo(EmprestimoDTO emprestimoDTO) {
-        emprestimoService.devolverLivro(emprestimoDTO);
+        emprestimoService.atualizarEmprestimo(emprestimoDTO);
         return Response.ok().build();
     }
 }

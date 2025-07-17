@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @Data
 public class EmprestimoDTO {
 
+    private Integer idEmprestimo;
+
     private LocalDate dtEmprestimo;
 
     private LocalDate dtLimiteDevolucao;
