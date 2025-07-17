@@ -1,6 +1,7 @@
 package br.com.biblioteca.emprestimo;
 
 import br.com.biblioteca.emprestimo.dto.EmprestimoDTO;
+import br.com.biblioteca.emprestimo.dto.EmprestimoFiltroDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -24,5 +25,12 @@ public class EmprestimoController {
     public Response devolverEmprestimo(EmprestimoDTO emprestimoDTO) {
         emprestimoService.atualizarEmprestimo(emprestimoDTO);
         return Response.ok().build();
+    }
+
+    @GET
+    @Path("cliente")
+    public Response listarEmprestimoCliente(EmprestimoFiltroDTO filtro) {
+        final var response = emprestimoService.listarEmprestimoCliente(filtro);
+        return Response.ok().entity(response).build();
     }
 }

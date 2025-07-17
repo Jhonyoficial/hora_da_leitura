@@ -2,6 +2,7 @@ package br.com.biblioteca.emprestimo;
 
 import br.com.biblioteca.emprestimo.dto.EmprestimoDTO;
 import br.com.biblioteca.emprestimo.enumeration.EmprestimoStatus;
+import br.com.biblioteca.emprestimo.orm.Emprestimo;
 import br.com.biblioteca.livro.Livro;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.BadRequestException;

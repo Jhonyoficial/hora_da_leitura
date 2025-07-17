@@ -1,17 +1,20 @@
 package br.com.biblioteca.emprestimo.mapper;
 
-import br.com.biblioteca.emprestimo.Emprestimo;
+import br.com.biblioteca.emprestimo.orm.Emprestimo;
 import br.com.biblioteca.emprestimo.dto.EmprestimoDTO;
 import br.com.biblioteca.emprestimo.enumeration.EmprestimoStatus;
 import org.mapstruct.EnumMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(componentModel = "jakarta-cdi")
 public interface EmprestimoMapper {
     EmprestimoMapper INSTANCE = Mappers.getMapper(EmprestimoMapper.class);
 
     EmprestimoDTO toEmprestimoDTO(Emprestimo emprestimo);
+    List<EmprestimoDTO> toEmprestimoDTO(List<Emprestimo> emprestimo);
     Emprestimo toEmprestimo(EmprestimoDTO emprestimoDTO);
 
     @EnumMapping()

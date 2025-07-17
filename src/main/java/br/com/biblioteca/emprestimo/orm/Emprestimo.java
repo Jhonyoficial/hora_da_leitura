@@ -1,4 +1,4 @@
-package br.com.biblioteca.emprestimo;
+package br.com.biblioteca.emprestimo.orm;
 
 import br.com.biblioteca.cliente.Cliente;
 import br.com.biblioteca.emprestimo.enumeration.EmprestimoStatus;

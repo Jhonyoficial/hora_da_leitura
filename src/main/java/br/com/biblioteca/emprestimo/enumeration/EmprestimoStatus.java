@@ -4,9 +4,9 @@ public enum EmprestimoStatus {
 
     EMPRESTADO,
 
-    DEVOLVIDO,
-
     PENDENTE,
+
+    DEVOLVIDO,
 
     CANCELADO
 }
