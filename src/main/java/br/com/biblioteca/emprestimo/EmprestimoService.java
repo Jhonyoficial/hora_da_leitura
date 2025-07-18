@@ -2,13 +2,13 @@ package br.com.biblioteca.emprestimo;
 
 import br.com.biblioteca.emprestimo.dto.EmprestimoDTO;
 import br.com.biblioteca.emprestimo.dto.EmprestimoFiltroDTO;
+import br.com.biblioteca.emprestimo.dto.EmprestimoPaginadoDTO;
 import br.com.biblioteca.emprestimo.enumeration.EmprestimoStatus;
 import br.com.biblioteca.emprestimo.mapper.EmprestimoMapper;
 import br.com.biblioteca.emprestimo.orm.Emprestimo;
+import br.com.biblioteca.generic.PaginacaoDTO;
 import br.com.biblioteca.livro.Livro;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
-import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -17,7 +17,6 @@ import jakarta.ws.rs.BadRequestException;
 
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @ApplicationScoped
@@ -60,7 +59,7 @@ public class EmprestimoService extends EmprestimoValidator {
 
     }
 
-    public List<EmprestimoDTO> listarEmprestimoCliente(EmprestimoFiltroDTO filtro) {
+    public PaginacaoDTO listarEmprestimoCliente(EmprestimoFiltroDTO filtro) {
 
         String query = "";
         Map<String, Object> params = new HashMap<>();
@@ -86,11 +85,15 @@ public class EmprestimoService extends EmprestimoValidator {
             query = query.substring(0, query.length() - 5);
         }
 
-        PanacheQuery<PanacheEntityBase> panacheEmprestimos = Emprestimo.find(query, Sort.by("fgStatus"), params);
+        final Sort sort =
+                filtro.getTypeOrder() == 0
+                        ? Sort.by("idEmprestimo").ascending()
+                        : Sort.by("idEmprestimo").descending();
 
-        panacheEmprestimos.page()
+        PanacheQuery<EmprestimoPaginadoDTO> listaEmprestimo = Emprestimo
+                .find(query, sort, params).project(EmprestimoPaginadoDTO.class);
 
-        return emprestimoMapper.toEmprestimoDTO(emprestimos);
+        return new PaginacaoDTO(listaEmprestimo, filtro);
     }
 
 

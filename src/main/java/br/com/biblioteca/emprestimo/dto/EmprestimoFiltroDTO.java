@@ -1,10 +1,13 @@
 package br.com.biblioteca.emprestimo.dto;
 
+import br.com.biblioteca.generic.PaginacaoDTO;
 import jakarta.ws.rs.QueryParam;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
-public class EmprestimoFiltroDTO {
+public class EmprestimoFiltroDTO extends PaginacaoDTO {
 
     @QueryParam("idEmprestimo")
     private Integer idEmprestimo;

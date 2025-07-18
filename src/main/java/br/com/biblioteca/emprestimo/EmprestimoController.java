@@ -30,7 +30,7 @@ public class EmprestimoController {
     @GET
     @Path("cliente")
     public Response listarEmprestimoCliente(EmprestimoFiltroDTO filtro) {
-        final var response = emprestimoService.listarEmprestimoCliente(filtro);
+        var response = emprestimoService.listarEmprestimoCliente(filtro);
         return Response.ok().entity(response).build();
     }
 }
